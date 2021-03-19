@@ -1,11 +1,13 @@
 package main
 
 import (
-	"crawler/fetcher"
-	"fmt"
+	"crawler/engine"
+	"crawler/mockWeb/paser"
 )
 
 func main()  {
-	context, _ := fetcher.Fetch("http://www.zhihu.com")
-	fmt.Printf("%s", context)
+	engine.Run(engine.Request{
+		Url:        "http://localhost:8080/mock/www.zhenai.com/zhenghun",
+		ParserFunc: paser.ParseCityList ,
+	})
 }
